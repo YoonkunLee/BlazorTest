@@ -1,15 +1,20 @@
-﻿<h1>Coligo </h1>
+﻿@page "/login"
+<h1>Coligo </h1>
 <h3>Welcome Back</h3>
-<h5>Do not miss your next opportunity. Sign into stay updated on your Professional world.</h5>
+<h6>Do not miss your next opportunity. Sign into stay updated on your Professional world.</h6>
 <div>
-    <input class="offset-1" type="text" id ="userID" value="Email or Phone"/><br />
-    <input class="offset-1" type="text" id ="userPassword" value="Email or Phone" /><br />
-    <button class="navbar-nav" type="submit">Sign in</button>
+    <input class="LoginTextBox" type="text" id ="userID" onfocus="this.value=''" value="Email or Phone" /><br />
+    <input class="LoginTextBox" type="text" id ="userPassword" onfocus="this.value=''" value="Password" /><br />
+    <button class="btn btn-primary" type="submit">Sign in</button>
 </div>
-<h6> Forgot password?</h6>
-<h6> New to Coligo?</h6>
-<a herf="">Join now</a>
+<a herf="">Forgot password?</a>
+<h6>
+    New to Coligo? <a herf="">Join now</a>
+</h6>
 
 @code {
-
+    string pre_userID = "Email or Phone";
+    string pre_password = "Password";
+    
+    
 }
