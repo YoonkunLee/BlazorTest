@@ -1,20 +1,19 @@
-﻿@page "/login"
-<h1>Coligo </h1>
-<h3>Welcome Back</h3>
-<h6>Do not miss your next opportunity. Sign into stay updated on your Professional world.</h6>
-<div>
-    <input class="LoginTextBox" type="text" id ="userID" onfocus="this.value=''" value="Email or Phone" /><br />
-    <input class="LoginTextBox" type="text" id ="userPassword" onfocus="this.value=''" value="Password" /><br />
-    <button class="btn btn-primary" type="submit">Sign in</button>
-</div>
-<a herf="">Forgot password?</a>
-<h6>
-    New to Coligo? <a herf="">Join now</a>
-</h6>
+﻿    <EditForm Model="@_loginModel" OnValidSubmit="confirmValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <InputText id="userName" @bind-Value="_loginModel.UserName" />
+        <InputText id="userPassword" @bind-Value="_loginModel.UserPassword" />
+
+        <button class="btn btn-primary" type="submit">Sign in</button>
+    </EditForm>
 
 @code {
-    string pre_userID = "Email or Phone";
-    string pre_password = "Password";
-    
-    
+    private LoginModel _loginModel = new LoginModel();
+
+    private void confirmValidSubmit()
+    {
+        //Need to connect Database to check user input is correct
+        Console.WriteLine("Submition success!");
+    }
 }
