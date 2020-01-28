@@ -1,0 +1,53 @@
+﻿@page "/Admin/Entities/OccupationList/{Name}"
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Function</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in _CustomerList)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>
+                    <button class="btn btn-primary" @onclick="@(async () => await EditCustomer(item.Name))">Edit</button>
+                    <button class="btn btn-warning" @onclick="@(async () => await RemoveCustomer(item.Name))">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<Customer> _CustomerList =CustomerLists();
+
+    public static List<Customer> CustomerLists()
+    {
+        List<Customer> _CustomerList = new List<Customer>();
+        _CustomerList.Add(new Customer { Name = "Customer1", AccountDefaultUrl = "http:Customer1.com" });
+        _CustomerList.Add(new Customer { Name = "Customer2", AccountDefaultUrl = "http:Customer2.com" });
+        _CustomerList.Add(new Customer { Name = "Customer3", AccountDefaultUrl = "http:Customer3.com" });
+        _CustomerList.Add(new Customer { Name = "Customer4", AccountDefaultUrl = "http:Customer4.com" });
+        _CustomerList.Add(new Customer { Name = "Customer5", AccountDefaultUrl = "http:Customer5.com" });
+
+        return _CustomerList;
+    }
+
+    public string Name { get; set; }
+
+    public async Task EditCustomer(string name)
+    {
+        var findCustomer = _CustomerList.Where(m => m.Name.Equals(name)).FirstOrDefault();
+
+    }
+
+    public async Task RemoveCustomer(string name)
+    {
+        Customer findCustomer = _CustomerList.Where(m => m.Name.Equals(name)).FirstOrDefault();
+        _CustomerList.Remove(findCustomer);
+
+    }
+}

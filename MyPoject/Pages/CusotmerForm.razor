@@ -1,0 +1,19 @@
+﻿@page "/CusomerForm/{empID}"
+
+<EditForm Model="@_customer" OnValidSubmit="ConfirmValidateSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <InputText @bind-Value="@_customer.Name" />
+    <button class="btn btn-primary" type="submit">Submit</button>
+</EditForm>
+
+@code {
+    protected Customer _customer = new Customer();
+
+    private void ConfirmValidateSubmit()
+    {
+        //Need to connect Database to check user input is correct
+        Console.WriteLine("Submition success!");
+    }
+}
