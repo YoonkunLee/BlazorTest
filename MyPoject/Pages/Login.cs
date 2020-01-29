@@ -6,11 +6,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MyPoject.Pages
 {
-    public class LoginModel
+    public partial class Login
     {
         [Required(ErrorMessage = "Please Enter Your UserID")]
-        public string UserName { get; set; }
+        public string Username { get; set; }
         [Required(ErrorMessage = "Please Enter Your Password")]
-        public string UserPassword { get; set; }
+        public string Password { get; set; }
     }
 }

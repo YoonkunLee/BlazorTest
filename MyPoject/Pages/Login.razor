@@ -1,17 +1,17 @@
-﻿    <EditForm Model="@_loginModel" OnValidSubmit="confirmValidSubmit">
+﻿    <EditForm Model="@_loginModel" OnValidSubmit="ConfirmValidateSubmit">
         <DataAnnotationsValidator />
         <ValidationSummary />
 
-        <InputText id="userName" @bind-Value="_loginModel.UserName" />
-        <InputText id="userPassword" @bind-Value="_loginModel.UserPassword" />
+        <InputText @bind-Value="_loginModel.Username" />
+        <InputText @bind-Value="_loginModel.Password" />
 
         <button class="btn btn-primary" type="submit">Sign in</button>
     </EditForm>
 
 @code {
-    private LoginModel _loginModel = new LoginModel();
+    private Login _loginModel = new Login();
 
-    private void confirmValidSubmit()
+    private void ConfirmValidateSubmit()
     {
         //Need to connect Database to check user input is correct
         Console.WriteLine("Submition success!");
