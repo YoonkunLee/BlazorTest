@@ -55,6 +55,19 @@ namespace MyPoject.Pages
                 throw;
             }
         }
+
+        public async Task<Occupation> AddSNS(SNS entity)
+        {
+            try
+            {
+                return await AdminDataAccess.Instance.AddOccupation(entity);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
     }
 }
 }

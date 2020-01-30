@@ -1,0 +1,19 @@
+﻿@using MyPoject.admin
+
+<EditForm Model="@_sns" OnValidSubmit="@AddSNS">
+<DataAnnotationsValidator />
+<ValidationSummary />
+
+<InputText @bind-Value="_sns.Name" />
+<InputText @bind-Value="_sns.AccountDefaultUrl" />
+<button class="btn btn-primary" type="submit">Submit</button>
+</EditForm>
+
+@code {
+    private SNS _sns = new SNS();
+
+    protected async Task AddSNS()
+    {
+        await CustomerService.AddSNS(_sns);
+    }
+}
