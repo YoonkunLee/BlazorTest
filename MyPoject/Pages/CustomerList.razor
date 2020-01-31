@@ -1,0 +1,51 @@
+﻿@using MyPoject.admin
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>AccountDefaultUrl</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in _snsLists)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.AccountDefaultUrl</td>
+                <td>
+                    <button class="btn btn-primary" @onclick="@(async () => await EditCustomer(item.Id))">Edit</button>
+                    <button class="btn btn-warning" @onclick="@(async () => await RemoveCustomer(item.Name))">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+
+public List<SNS> _snsLists = SnsLists();
+
+public static List<SNS> SnsLists()
+{
+    //AdminDbContext SNSDb = new AdminDbContext();
+    //List<SNS> _snsLists = SNSDb.SNSs.ToList();
+
+    List<SNS> _snsLists = new List<SNS>();
+
+    return _snsLists;
+}
+
+public async Task EditCustomer(Guid id)
+{
+    SNS findCustomer = await CustomerService.GetSNSById(id);
+    await CustomerService.UpdateSNS(findCustomer);
+
+}
+
+public async Task RemoveCustomer(string name)
+{
+    SNS findCustomer = _snsLists.Where(m => m.Name.Equals(name)).FirstOrDefault();
+    _snsLists.Remove(findCustomer);
+
+}
