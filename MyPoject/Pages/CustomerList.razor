@@ -14,7 +14,7 @@
                 <td>@item.Name</td>
                 <td>@item.AccountDefaultUrl</td>
                 <td>
-                    <button class="btn btn-primary" @onclick="@(async () => await EditCustomer(item.Id))">Edit</button>
+                    <button class="btn btn-primary" @onclick="@(async () => await EditCustomer(item.id))">Edit</button>
                     <button class="btn btn-warning" @onclick="@(async () => await RemoveCustomer(item.Name))">Delete</button>
                 </td>
             </tr>

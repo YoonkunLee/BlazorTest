@@ -8,11 +8,11 @@ namespace MyPoject.Pages
 {
     public class CustomerService
     {
-        public async Task<IEnumerable<Occupation>> GetOccupations()
+        public async Task<IEnumerable<Occupation>> GetSNS()
         {
             try
             {
-                return await AdminDataAccess.Instance.GetOccupations();
+                return await AdminDataAccess.Instance.GetSNS();
             }
             catch (Exception)
             {
@@ -20,7 +20,7 @@ namespace MyPoject.Pages
             }
         }
 
-        public async Task<Occupation> GetOccupationById(Guid id)
+        public async Task<Occupation> GetSNSById(Guid id)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace MyPoject.Pages
             }
         }
 
-        public async Task<Occupation> AddOccupation(Occupation entity)
+        public async Task<Occupation> AddSNS(Occupation entity)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace MyPoject.Pages
             }
         }
 
-        public async Task<Occupation> UpdateOccupation(Occupation entity)
+        public async Task<Occupation> UpdateSNS(Occupation entity)
         {
             try
             {
@@ -54,20 +54,6 @@ namespace MyPoject.Pages
             {
                 throw;
             }
-        }
-
-        public async Task<Occupation> AddSNS(SNS entity)
-        {
-            try
-            {
-                return await AdminDataAccess.Instance.AddOccupation(entity);
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
+        }     
     }
-}
 }
